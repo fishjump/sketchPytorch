@@ -69,7 +69,7 @@ Basically, you can follow steps on MMdnn, but I highly recommend you to convert 
 2. Convert IR files to Pytorch code snippet 
 
    ```powershell
-mmtocode -f pytorch -in ir.pb -iw ir.npy -o model.py -ow weight.pkl
+   mmtocode -f pytorch -in ir.pb -iw ir.npy -o model.py -ow weight.pkl
    ```
    
 3.  Edit ```model.py```
@@ -78,19 +78,19 @@ mmtocode -f pytorch -in ir.pb -iw ir.npy -o model.py -ow weight.pkl
 
    e.g.
 
-```
-Parse file [ir.pb] with binary format successfully.
-Pytorch Emitter has not supported operator [UpSampling2D].
-up_sampling2d_1
-Pytorch Emitter has not supported operator [UpSampling2D].
-up_sampling2d_2
-Pytorch Emitter has not supported operator [UpSampling2D].
-up_sampling2d_3
-Pytorch Emitter has not supported operator [UpSampling2D].
-up_sampling2d_4
-   Target network code snippet is saved as [pytorch_model.py].
-   Target weights are saved as [pytorch_model_weight.pkl].
-```
+   ```
+   Parse file [ir.pb] with binary format successfully.
+   Pytorch Emitter has not supported operator [UpSampling2D].
+   up_sampling2d_1
+   Pytorch Emitter has not supported operator [UpSampling2D].
+   up_sampling2d_2
+   Pytorch Emitter has not supported operator [UpSampling2D].
+   up_sampling2d_3
+   Pytorch Emitter has not supported operator [UpSampling2D].
+   up_sampling2d_4
+      Target network code snippet is saved as [pytorch_model.py].
+      Target weights are saved as [pytorch_model_weight.pkl].
+   ```
    Besides, please take your notice on the shapes of weights, you need to use ```torch.permute()```  or ```np.transpose()``` to change them.
    Finally, you can choose a fancy name to replace the default name("KitModel") of  this module.
 
